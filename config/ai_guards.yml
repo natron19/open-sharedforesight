@@ -1,0 +1,18 @@
+# Per-app guardrail configuration, read by AiGuardConfig.
+# See docs/ai-guardrails.md (Layer 1b: AiOutputGuard) and docs/ai-evals.md.
+
+# Product strategy is a business context; personal distress is out of scope.
+crisis_terms: []
+
+# Output structure rules per AiTemplate name. Templates not listed get the
+# generic output checks only (non-empty, no prompt leak, no profanity, no new PII).
+#   format:        text | json
+#   required_keys: top-level keys the JSON object must contain
+templates:
+  health_ping:
+    format: text
+  # AssumptionMatricesController#parse_assumptions! reads parsed["assumptions"].
+  # Per-entry validation (8-12 entries, risk/category enums) stays in the controller.
+  adaptableproduct_assumptions_v1:
+    format: json
+    required_keys: [assumptions]

@@ -45,16 +45,16 @@ class AssumptionMatricesController < ApplicationController
     redirect_to strategy_product_path(@strategy_product)
 
   rescue GeminiService::BudgetExceededError
-    render partial: "shared/ai_error", locals: { error_type: :budget_exceeded }
+    render "shared/ai_error_page", locals: { error_type: :budget_exceeded }, status: :unprocessable_entity
 
   rescue GeminiService::GatekeeperError
-    render partial: "shared/ai_error", locals: { error_type: :gatekeeper_blocked }
+    render "shared/ai_error_page", locals: { error_type: :gatekeeper_blocked }, status: :unprocessable_entity
 
   rescue GeminiService::TimeoutError
-    render partial: "shared/ai_error", locals: { error_type: :timeout }
+    render "shared/ai_error_page", locals: { error_type: :timeout }, status: :unprocessable_entity
 
   rescue GeminiService::GeminiError
-    render partial: "shared/ai_error", locals: { error_type: :error }
+    render "shared/ai_error_page", locals: { error_type: :error }, status: :unprocessable_entity
   end
 
   private
