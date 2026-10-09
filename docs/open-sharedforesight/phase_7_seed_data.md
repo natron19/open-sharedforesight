@@ -2,9 +2,9 @@
 
 **Goal:** `rails db:seed` (and `rails db:reset && rails db:seed`) produces a realistic starting state so a cloner sees something interactive immediately after setup.
 
-**Prerequisites:** Phase 5 complete (the `adaptableproduct_assumptions_v1` AiTemplate seed is added in Phase 5). Models, migrations, and the full CRUD flow all working.
+**Prerequisites:** Phase 5 complete (the `sharedforesight_assumptions_v1` AiTemplate seed is added in Phase 5). Models, migrations, and the full CRUD flow all working.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §10
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §10
 
 ---
 
@@ -26,7 +26,7 @@ All seeds must be idempotent: `rails db:seed` twice must not duplicate records.
 Add after the boilerplate's user seed (the admin demo user must already exist at this point):
 
 ```ruby
-# -- AdaptableProduct Demo: StrategyProduct seed --
+# -- SharedForesight Demo: StrategyProduct seed --
 
 demo_user = User.find_by!(email: "demo@example.com")
 

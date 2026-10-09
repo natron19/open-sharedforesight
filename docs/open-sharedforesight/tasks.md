@@ -1,6 +1,6 @@
-# AdaptableProduct Demo — Build Tracker
+# SharedForesight Demo — Build Tracker
 
-**Spec:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md`  
+**Spec:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md`  
 **Boilerplate:** Open Demo Starter (open-base) — already installed in this repo  
 **Stack:** Rails 8.1, PostgreSQL (UUID PKs), Bootstrap 5 dark, Stimulus + Turbo, Gemini AI
 
@@ -67,7 +67,7 @@ spec/factories/assumptions.rb
 ### AI Template
 
 ```
-Name:          adaptableproduct_assumptions_v1
+Name:          sharedforesight_assumptions_v1
 Model:         gemini-2.5-flash
 Max tokens:    2500
 Temperature:   0.4
@@ -79,7 +79,7 @@ Expected JSON: { "assumptions": [...] }  — 8 to 12 entries
 
 - No plain JavaScript — Stimulus only
 - `turbo_stream.update(...)` never `turbo_stream.replace(...)`
-- No hardcoded app name — always `ENV.fetch("APP_NAME", "AdaptableProduct Demo")`
+- No hardcoded app name — always `ENV.fetch("APP_NAME", "SharedForesight Demo")`
 - Never start the Rails server automatically — tell the user
 - Never run RSpec automatically — tell the user
 - Never add Redis, Sidekiq, or background jobs unless explicitly requested

@@ -13,6 +13,6 @@ templates:
     format: text
   # AssumptionMatricesController#parse_assumptions! reads parsed["assumptions"].
   # Per-entry validation (8-12 entries, risk/category enums) stays in the controller.
-  adaptableproduct_assumptions_v1:
+  sharedforesight_assumptions_v1:
     format: json
     required_keys: [assumptions]

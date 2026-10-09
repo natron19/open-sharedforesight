@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phase 2 complete. All three model specs green.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §4, §5
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §4, §5
 
 ---
 

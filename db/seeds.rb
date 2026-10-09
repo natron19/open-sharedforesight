@@ -21,8 +21,8 @@ end
 
 puts "Seeded: health_ping AI template"
 
-# AdaptableProduct assumptions template
-AiTemplate.find_or_create_by!(name: "adaptableproduct_assumptions_v1") do |t|
+# SharedForesight assumptions template
+AiTemplate.find_or_create_by!(name: "sharedforesight_assumptions_v1") do |t|
   t.description       = "Surfaces 8 to 12 ranked, falsifiable assumptions a product strategy depends on, paired with risk, category, and a cheap-first experiment."
   t.model             = "gemini-2.5-flash"
   t.max_output_tokens = 8192
@@ -100,7 +100,7 @@ AiTemplate.find_or_create_by!(name: "adaptableproduct_assumptions_v1") do |t|
   NOTES
 end
 
-puts "Seeded: adaptableproduct_assumptions_v1 AI template"
+puts "Seeded: sharedforesight_assumptions_v1 AI template"
 
 # ── Client products for demo@example.com ──────────────────────────────────────
 demo = User.find_by!(email: "demo@example.com")

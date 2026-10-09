@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phase 4 complete. Strategy product CRUD working in browser. `GEMINI_API_KEY` set in `.env`.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §5, §7, §8
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §5, §7, §8
 
 ---
 
@@ -16,7 +16,7 @@ Never call the Gemini API directly. Always use `GeminiService.generate`:
 
 ```ruby
 result = GeminiService.generate(
-  template:  "adaptableproduct_assumptions_v1",
+  template:  "sharedforesight_assumptions_v1",
   variables: { product_name: ..., target_customer: ..., strategy: ..., primary_goal: ... }
 )
 ```
@@ -52,7 +52,7 @@ Use `gemini-2.5-flash`. Do NOT use `gemini-2.0-flash` or `1.5-*` models — they
 Add to `db/seeds.rb` (use `find_or_create_by!` for idempotency):
 
 ```ruby
-AiTemplate.find_or_create_by!(name: "adaptableproduct_assumptions_v1") do |t|
+AiTemplate.find_or_create_by!(name: "sharedforesight_assumptions_v1") do |t|
   t.description = "Surfaces 8 to 12 ranked, falsifiable assumptions a product strategy depends on, paired with risk, category, and a cheap-first experiment."
   t.model = "gemini-2.5-flash"
   t.max_output_tokens = 2500
@@ -144,7 +144,7 @@ def create
   @matrix = @strategy_product.assumption_matrices.create!(status: "pending")
 
   raw = GeminiService.generate(
-    template:  "adaptableproduct_assumptions_v1",
+    template:  "sharedforesight_assumptions_v1",
     variables: {
       product_name:    @strategy_product.name,
       target_customer: @strategy_product.target_customer,
@@ -263,7 +263,7 @@ In the `show` action, expose `@matrix.status` to the view. In `assumption_matric
 
 ```
 [ ] GEMINI_API_KEY set in .env
-[ ] rails db:seed — adaptableproduct_assumptions_v1 template present at /admin/ai_templates
+[ ] rails db:seed — sharedforesight_assumptions_v1 template present at /admin/ai_templates
 [ ] Sign in, create a product with FieldNote values, click "Surface Assumptions"
 [ ] Spinner shows during the Gemini call (4–10 seconds typical)
 [ ] Matrix renders with 8–12 assumption rows on success

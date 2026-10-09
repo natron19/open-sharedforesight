@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phase 3 complete. All routes and controller skeletons in place.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §6, §12
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §6, §12
 
 ---
 
@@ -13,7 +13,7 @@
 ### Rules to follow in every view
 
 - No inline JavaScript. No `onclick` or `<script>` tags. Use `data-action`, `data-controller`, `data-target`.
-- All app name references: `ENV.fetch("APP_NAME", "AdaptableProduct Demo")` — never hardcode.
+- All app name references: `ENV.fetch("APP_NAME", "SharedForesight Demo")` — never hardcode.
 - Bootstrap dark mode is already on `<html data-bs-theme="dark">` in the layout.
 - Use `turbo_stream.update` in any Turbo Stream response. Never `turbo_stream.replace`.
 - Accent color is `var(--accent)` — use it for primary buttons and the brand mark only.
@@ -45,7 +45,7 @@ Public landing page. Structure:
 1. Centered hero: app name (bold, system font stack), tagline from `ENV.fetch("APP_TAGLINE", "")`, 60–90 word paragraph explaining why naming assumptions matters.
 2. "Try it" button → `sign_up_path`
 3. Below the fold: a **static** example Assumption Matrix rendered as plain HTML (hardcoded rows, no DB query). This shows visitors what the output looks like before signing up.
-4. Footer: link to production app (`https://adaptableproduct.com`) and GitHub repo URL.
+4. Footer: link to production app (`https://sharedforesight.com`) and GitHub repo URL.
 
 No Gemini calls on this page.
 
@@ -390,7 +390,7 @@ Add to `app/assets/stylesheets/application.css`:
 [ ] Dashboard at /dashboard renders the products list (or empty state)
 [ ] Matrix sort buttons visible on show page when a matrix fixture is present (can test via console: create records manually)
 [ ] No JavaScript console errors on any page
-[ ] No hardcoded "AdaptableProduct Demo" strings in view source — all from ENV
+[ ] No hardcoded "SharedForesight Demo" strings in view source — all from ENV
 ```
 
 ---

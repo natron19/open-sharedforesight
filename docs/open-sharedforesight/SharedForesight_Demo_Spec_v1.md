@@ -1,16 +1,16 @@
-# AdaptableProduct Demo - Spec Document
+# SharedForesight Demo - Spec Document
 
 **Document Version:** 1.0
 **Built On:** Open Demo Starter boilerplate v2.0
 **License:** MIT
-**Source Brief:** 32_AppBrief_AdaptableProduct_v1.md
-**Production Counterpart:** AdaptableProduct (multi-tenant SaaS)
+**Source Brief:** 32_AppBrief_SharedForesight_v1.md
+**Production Counterpart:** SharedForesight (multi-tenant SaaS)
 
 ---
 
 ## 1. App Overview
 
-**AdaptableProduct Demo** is a single-page open source Rails 8 app that lets a product leader describe their product strategy in four short fields and receive an **Assumption Matrix**: an AI-generated, ranked list of 8 to 12 falsifiable assumptions the strategy depends on, each paired with a risk rating, a category, and a suggested experiment.
+**SharedForesight Demo** is a single-page open source Rails 8 app that lets a product leader describe their product strategy in four short fields and receive an **Assumption Matrix**: an AI-generated, ranked list of 8 to 12 falsifiable assumptions the strategy depends on, each paired with a risk rating, a category, and a suggested experiment.
 
 The demo isolates one move from the 9-Step Adaptable Product Framework: **Step 3, Assumption Challenge**. This is the single most productive step a product team can run, and the one most often skipped because the strategy itself feels self-evident until it is named in writing. The point of the matrix is not for Gemini to be right; it is to give the user a structured surface on which to disagree, recalibrate, and decide which assumptions to test first.
 
@@ -20,7 +20,7 @@ Most product strategy collapses because the underlying assumptions were never na
 
 ### The Indie Hacker Angle
 
-This demo is one tool from a larger multi-tenant SaaS suite the author is building. The production version of AdaptableProduct is a quarterly strategic planning environment for product leadership teams: it embeds all nine framework steps, supports team collaboration, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle engagement. The production landing page is at `https://adaptableproduct.com` (placeholder).
+This demo is one tool from a larger multi-tenant SaaS suite the author is building. The production version of SharedForesight is a quarterly strategic planning environment for product leadership teams: it embeds all nine framework steps, supports team collaboration, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle engagement. The production landing page is at `https://sharedforesight.com` (placeholder).
 
 This open source demo strips that down to one feature, runs locally, scopes everything to a single signed-in user, and is released under MIT license. Visitors can clone the repo, run `bin/setup`, sign in as the seeded admin, and have a working Assumption Matrix generator in under five minutes. The AI prompt that drives the matrix is editable in the admin UI; visitors can tune it themselves without touching code.
 
@@ -34,15 +34,15 @@ This open source demo strips that down to one feature, runs locally, scopes ever
 
 | Customization | Value |
 |---|---|
-| `APP_NAME` | `AdaptableProduct Demo` |
+| `APP_NAME` | `SharedForesight Demo` |
 | `APP_TAGLINE` | `Describe your product strategy. See the assumptions you are betting on.` |
-| `APP_DESCRIPTION` | `An open source demo of the Assumption Matrix from AdaptableProduct, the quarterly companion for product leaders managing through structural change.` |
+| `APP_DESCRIPTION` | `An open source demo of the Assumption Matrix from SharedForesight, the quarterly companion for product leaders managing through structural change.` |
 | Accent color | `#c026d3` (fuchsia) set in `app/assets/stylesheets/_accent.scss` |
 | Navbar links | `Products` (index), and the user dropdown from the boilerplate |
-| Home page (`home/index.html.erb`) | Replaced with the AdaptableProduct Demo landing pitch |
+| Home page (`home/index.html.erb`) | Replaced with the SharedForesight Demo landing pitch |
 | Dashboard (`dashboard/show.html.erb`) | Replaced with the Products index (the primary view in this app) |
 | UX pattern | **Form-then-result** with a sortable Bootstrap table for the matrix |
-| AI templates seeded | `adaptableproduct_assumptions_v1` (full content in Section 7) |
+| AI templates seeded | `sharedforesight_assumptions_v1` (full content in Section 7) |
 
 Everything else (auth, layout, admin panel, Gemini service, gatekeeper, budget cap, request log, RSpec setup) is inherited unchanged from the boilerplate.
 
@@ -174,7 +174,7 @@ Two actions: `create` (the Gemini-calling one) and `show`.
 - `create`: This is the action that triggers the Gemini call. Steps:
   1. Load `current_user.strategy_products.find(params[:id])`.
   2. Build a new `AssumptionMatrix` with status `pending`.
-  3. Call `GeminiService.generate(template: "adaptableproduct_assumptions_v1", variables: { product_name: ..., target_customer: ..., strategy: ..., primary_goal: ... })`.
+  3. Call `GeminiService.generate(template: "sharedforesight_assumptions_v1", variables: { product_name: ..., target_customer: ..., strategy: ..., primary_goal: ... })`.
   4. Persist the raw response to `gemini_raw`.
   5. Parse the JSON. Validate it has 8 to 12 entries each conforming to the schema (statement, confidence_ai, risk, category, experiment).
   6. Create one Assumption row per entry, preserving order via `position`.
@@ -281,7 +281,7 @@ The boilerplate's `_gemini_error.html.erb` partial handles `GeminiError`, `Gatek
 
 This demo seeds one AiTemplate.
 
-### Template: `adaptableproduct_assumptions_v1`
+### Template: `sharedforesight_assumptions_v1`
 
 **Description (admin UI):** "Surfaces 8 to 12 ranked, falsifiable assumptions a product strategy depends on, paired with risk, category, and a cheap-first experiment."
 
@@ -495,7 +495,7 @@ The boilerplate's specs for `User`, `AiTemplate`, `LlmRequest`, `GeminiService`,
 
 One record matching the full specification in Section 7:
 
-- `name: "adaptableproduct_assumptions_v1"`
+- `name: "sharedforesight_assumptions_v1"`
 - `description: "Surfaces 8 to 12 ranked, falsifiable assumptions a product strategy depends on, paired with risk, category, and a cheap-first experiment."`
 - `system_prompt`: the full text from Section 7
 - `user_prompt_template`: the full text from Section 7
@@ -523,13 +523,13 @@ The seed file does NOT generate an AssumptionMatrix. The visitor runs the matrix
 
 ### App-specific sections (extending the boilerplate's README template)
 
-**Title:** AdaptableProduct Demo
+**Title:** SharedForesight Demo
 
 **Tagline:** Describe your product strategy. See the assumptions you are betting on.
 
 **Description (one paragraph):**
 
-AdaptableProduct Demo is an open source, single-feature taste of the production AdaptableProduct app. Enter your product name, target customer, current strategy in one paragraph, and the most important goal the strategy is meant to advance. Click Surface Assumptions, and Gemini returns 8 to 12 ranked, falsifiable assumptions your strategy depends on, each with a risk rating, a category, and a suggested experiment ordered cheapest first. Re-rate your own confidence on each row inline; the gap between the AI's confidence and yours is the most interesting cell.
+SharedForesight Demo is an open source, single-feature taste of the production SharedForesight app. Enter your product name, target customer, current strategy in one paragraph, and the most important goal the strategy is meant to advance. Click Surface Assumptions, and Gemini returns 8 to 12 ranked, falsifiable assumptions your strategy depends on, each with a risk rating, a category, and a suggested experiment ordered cheapest first. Re-rate your own confidence on each row inline; the gap between the AI's confidence and yours is the most interesting cell.
 
 **Screenshot placeholder:**
 
@@ -537,13 +537,13 @@ AdaptableProduct Demo is an open source, single-feature taste of the production 
 
 **Why I built this:**
 
-I built AdaptableProduct because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
+I built SharedForesight because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
 
-The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at `https://adaptableproduct.com` (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI at `/admin/ai_templates`. Sign in as `demo@example.com` / `password123`, click Admin, click the template, and tune it yourself. That is the point of releasing it as data, not code.
+The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at `https://sharedforesight.com` (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI at `/admin/ai_templates`. Sign in as `demo@example.com` / `password123`, click Admin, click the template, and tune it yourself. That is the point of releasing it as data, not code.
 
 **Editable AI prompt:**
 
-The single AI template this demo uses is `adaptableproduct_assumptions_v1`. It lives as a row in the `ai_templates` table and is edited in the admin UI. To iterate on the prompt:
+The single AI template this demo uses is `sharedforesight_assumptions_v1`. It lives as a row in the `ai_templates` table and is edited in the admin UI. To iterate on the prompt:
 
 1. Sign in as the seeded admin (`demo@example.com` / `password123`)
 2. Click Admin in the user dropdown
@@ -620,4 +620,4 @@ Everything else is Bootstrap utility classes. The footer, navbar, flash containe
 
 ---
 
-*v1.0 - AdaptableProduct Demo spec. Built on Open Demo Starter v2.0. Open source under MIT license.*
+*v1.0 - SharedForesight Demo spec. Built on Open Demo Starter v2.0. Open source under MIT license.*

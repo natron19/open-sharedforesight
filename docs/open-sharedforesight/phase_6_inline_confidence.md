@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phase 5 complete. Gemini call works end-to-end and matrix renders.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §5 (AssumptionsController), §6 (_confidence_rating.html.erb)
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §5 (AssumptionsController), §6 (_confidence_rating.html.erb)
 
 ---
 

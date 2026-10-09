@@ -33,7 +33,7 @@ RSpec.describe "AssumptionMatrices", type: :request do
 
       it "calls GeminiService with the correct template and variables" do
         expect(GeminiService).to receive(:generate).with(
-          template:  "adaptableproduct_assumptions_v1",
+          template:  "sharedforesight_assumptions_v1",
           variables: {
             product_name:    product.name,
             target_customer: product.target_customer,

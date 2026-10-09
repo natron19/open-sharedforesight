@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phases 1–7 complete. All individual phase specs passing.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §6, §8
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §6, §8
 
 ---
 
@@ -93,7 +93,7 @@ Before running the final suite, do a pass for:
 
 ```
 [ ] No binding.pry or debugger calls in any file (grep -r "binding.pry\|debugger" app/)
-[ ] No hardcoded "AdaptableProduct Demo" string literals in views (grep -r "AdaptableProduct Demo" app/views/)
+[ ] No hardcoded "SharedForesight Demo" string literals in views (grep -r "SharedForesight Demo" app/views/)
 [ ] No hardcoded hex color values outside application.css (grep -r "#c026d3\|#a21caf" app/views/ app/javascript/)
 [ ] No JSON API routes added (config/routes.rb should have only HTML routes + Turbo Stream)
 [ ] No Redis, Sidekiq, or external queue gems in Gemfile
@@ -134,7 +134,7 @@ Access Control
 
 Admin Panel
 [ ] /admin/llm_requests shows all calls with correct statuses
-[ ] /admin/ai_templates → edit adaptableproduct_assumptions_v1 → Test panel fires and returns JSON
+[ ] /admin/ai_templates → edit sharedforesight_assumptions_v1 → Test panel fires and returns JSON
 
 Infrastructure
 [ ] GET /up/llm returns {"status":"ok",...}

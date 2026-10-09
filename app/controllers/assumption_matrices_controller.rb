@@ -9,7 +9,7 @@ class AssumptionMatricesController < ApplicationController
 
   def create
     raw = GeminiService.generate(
-      template:  "adaptableproduct_assumptions_v1",
+      template:  "sharedforesight_assumptions_v1",
       variables: {
         product_name:    @strategy_product.name,
         target_customer: @strategy_product.target_customer,

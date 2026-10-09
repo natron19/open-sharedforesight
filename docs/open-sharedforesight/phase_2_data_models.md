@@ -4,7 +4,7 @@
 
 **Prerequisites:** Phase 1 complete. Boilerplate RSpec suite green.
 
-**Spec reference:** `docs/open-adaptableproduct/AdaptableProduct_Demo_Spec_v1.md` §3, §9
+**Spec reference:** `docs/open-sharedforesight/SharedForesight_Demo_Spec_v1.md` §3, §9
 
 ---
 

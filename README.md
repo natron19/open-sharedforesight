@@ -1,8 +1,8 @@
-# AdaptableProduct Demo
+# SharedForesight Demo
 
 > Describe your product strategy. See the assumptions you are betting on.
 
-AdaptableProduct Demo is an open source, single-feature taste of the production AdaptableProduct app. Enter your product name, target customer, current strategy in one paragraph, and the most important goal the strategy is meant to advance. Click Surface Assumptions, and Gemini returns 8 to 12 ranked, falsifiable assumptions your strategy depends on, each with a risk rating, a category, and a suggested experiment ordered cheapest first. Re-rate your own confidence on each row inline; the gap between the AI's confidence and yours is the most interesting cell.
+SharedForesight Demo is an open source, single-feature taste of the production SharedForesight app. Enter your product name, target customer, current strategy in one paragraph, and the most important goal the strategy is meant to advance. Click Surface Assumptions, and Gemini returns 8 to 12 ranked, falsifiable assumptions your strategy depends on, each with a risk rating, a category, and a suggested experiment ordered cheapest first. Re-rate your own confidence on each row inline; the gap between the AI's confidence and yours is the most interesting cell.
 
 ## Quick Start
 
@@ -16,7 +16,7 @@ AdaptableProduct Demo is an open source, single-feature taste of the production 
 
 ## Editable AI Prompt
 
-The single AI template that drives this demo is `adaptableproduct_assumptions_v1`. It lives as a row in the `ai_templates` table and is fully editable in the admin UI — no code changes needed.
+The single AI template that drives this demo is `sharedforesight_assumptions_v1`. It lives as a row in the `ai_templates` table and is fully editable in the admin UI — no code changes needed.
 
 To iterate on the prompt:
 
@@ -30,9 +30,9 @@ To iterate on the prompt:
 
 ## Why I Built This
 
-I built AdaptableProduct because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
+I built SharedForesight because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
 
-The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at https://adaptableproduct.com (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI. That is the point of releasing it as data, not code.
+The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at https://sharedforesight.com (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI. That is the point of releasing it as data, not code.
 
 ## Privacy Note
 
@@ -42,7 +42,7 @@ This demo runs locally and does not transmit your data anywhere except to Google
 
 | Variable | Default | Description |
 |---|---|---|
-| `APP_NAME` | `"AdaptableProduct Demo"` | Displayed in the navbar and title |
+| `APP_NAME` | `"SharedForesight Demo"` | Displayed in the navbar and title |
 | `APP_TAGLINE` | — | Shown in the footer |
 | `APP_DESCRIPTION` | — | Shown on the landing page |
 | `GEMINI_API_KEY` | (required) | Your Google Gemini API key — get one free at https://aistudio.google.com/app/apikey |
@@ -73,7 +73,7 @@ We build these demos the way we would build a production AI feature: decide what
 
 **Before you see the model's output** (`AiOutputGuard`):
 - Blocks empty responses, responses that repeat the system prompt, blocked language, and personal data the model made up (SSNs, card numbers, emails, phone numbers that were not in your input).
-- `adaptableproduct_assumptions_v1` must return valid JSON with `assumptions`, or the response is not shown.
+- `sharedforesight_assumptions_v1` must return valid JSON with `assumptions`, or the response is not shown.
 
 **Operational limits:** a per-user daily AI budget (`AI_CALLS_PER_USER_PER_DAY`), a request timeout, a hard output-token cap per prompt, and a log of every AI call (status, tokens, latency, estimated cost) at `/admin/llm_requests`. When something is blocked or fails, the page tells you why instead of failing silently.
 

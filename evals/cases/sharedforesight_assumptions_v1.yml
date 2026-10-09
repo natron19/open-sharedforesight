@@ -3,7 +3,7 @@
 # cheap specific experiment. "Good" = every assumption is genuinely implied by the
 # stated strategy (no invented facts), is testable, and the matrix stays on the
 # product-strategy topic even when the input wanders or asks for something else.
-template: adaptableproduct_assumptions_v1
+template: sharedforesight_assumptions_v1
 
 rubric:
   - dimension: accurate

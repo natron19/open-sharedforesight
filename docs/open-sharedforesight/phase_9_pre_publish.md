@@ -25,7 +25,7 @@ Open that file and follow its prompt exactly — it covers:
 
 ---
 
-## AdaptableProduct-Specific Items to Verify
+## SharedForesight-Specific Items to Verify
 
 Beyond the standard checklist, confirm:
 
@@ -60,7 +60,7 @@ If any commit ever touched `.env` or `config/master.key` with real values, those
 
 ```
 [ ] All items in docs/prompts/pre-publish-security-check.md: PASS
-[ ] All AdaptableProduct-specific items above: PASS
+[ ] All SharedForesight-specific items above: PASS
 [ ] Git history shows no secrets
 [ ] bundle exec rspec — still green after any fixes made in this phase
 ```
