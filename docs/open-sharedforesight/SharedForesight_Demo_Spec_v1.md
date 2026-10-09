@@ -20,7 +20,7 @@ Most product strategy collapses because the underlying assumptions were never na
 
 ### The Indie Hacker Angle
 
-This demo is one tool from a larger multi-tenant SaaS suite the author is building. The production version of SharedForesight is a quarterly strategic planning environment for product leadership teams: it embeds all nine framework steps, supports team collaboration, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle engagement. The production landing page is at `https://sharedforesight.com` (placeholder).
+This demo is one tool from a larger multi-tenant SaaS suite the author is building. The production version of SharedForesight is a quarterly strategic planning environment for product leadership teams: it embeds all nine framework steps, supports team collaboration, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle engagement. The production landing page is at `https://sharedforesight.com`.
 
 This open source demo strips that down to one feature, runs locally, scopes everything to a single signed-in user, and is released under MIT license. Visitors can clone the repo, run `bin/setup`, sign in as the seeded admin, and have a working Assumption Matrix generator in under five minutes. The AI prompt that drives the matrix is editable in the admin UI; visitors can tune it themselves without touching code.
 
@@ -539,7 +539,7 @@ SharedForesight Demo is an open source, single-feature taste of the production S
 
 I built SharedForesight because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
 
-The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at `https://sharedforesight.com` (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI at `/admin/ai_templates`. Sign in as `demo@example.com` / `password123`, click Admin, click the template, and tune it yourself. That is the point of releasing it as data, not code.
+The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at `https://sharedforesight.com`. This demo is MIT-licensed; the prompt that drives it is editable in the admin UI at `/admin/ai_templates`. Sign in as `demo@example.com` / `password123`, click Admin, click the template, and tune it yourself. That is the point of releasing it as data, not code.
 
 **Editable AI prompt:**
 

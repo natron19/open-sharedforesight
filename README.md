@@ -32,7 +32,7 @@ To iterate on the prompt:
 
 I built SharedForesight because most of the product strategy advice I have read assumes a stable strategic frame, and most of the strategies I have run did not have one. The 9-Step Adaptable Product Framework is the working version of the practice I wish I had had, and Step 3, Assumption Challenge, is the most productive single step a team can run. This demo is the smallest possible version of that step: enter the strategy, see the bets, disagree.
 
-The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at https://sharedforesight.com (placeholder). This demo is MIT-licensed; the prompt that drives it is editable in the admin UI. That is the point of releasing it as data, not code.
+The full version is multi-tenant, supports team collaboration across all nine framework steps, longitudinal cycle comparison, decision logs with dissent preserved, and a Carryover Queue for between-cycle work. You can read about it at https://sharedforesight.com. This demo is MIT-licensed; the prompt that drives it is editable in the admin UI. That is the point of releasing it as data, not code.
 
 ## Privacy Note
 
