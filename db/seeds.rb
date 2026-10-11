@@ -23,7 +23,7 @@ end
 puts "Seeded: health_ping AI template"
 
 # SharedForesight assumptions template
-AiTemplate.find_or_create_by!(name: "sharedforesight_assumptions_v1") do |t|
+AiTemplate.find_or_initialize_by(name: "sharedforesight_assumptions_v1").tap do |t|
   t.description       = "Surfaces 8 to 12 ranked, falsifiable assumptions a product strategy depends on, paired with risk, category, and a cheap-first experiment."
   t.model             = "gemini-2.5-flash"
   t.max_output_tokens = 8192
@@ -54,6 +54,21 @@ AiTemplate.find_or_create_by!(name: "sharedforesight_assumptions_v1") do |t|
 
     Return assumptions ranked by leverage: the assumption whose disconfirmation
     would most reshape the strategy goes first.
+
+    Keep it tight: each statement under 30 words, each experiment under 40 words.
+
+    If the strategy depends on something illegal or harmful (for example,
+    screening people out by a protected characteristic such as familial status,
+    disability, race, religion, or national origin; deceiving customers; covert
+    surveillance), do not help that part work better:
+    - Make the first assumption the legal exposure itself (category "regulatory",
+      risk "high", confidence 1), naming the law or harm at stake (e.g. the Fair
+      Housing Act for tenant screening).
+    - Every experiment tests only the lawful version of the product (e.g. whether
+      landlords pay for screening on lawful criteria such as verified income or
+      rental history). Never propose an experiment that collects, infers, detects,
+      or measures accuracy on a protected characteristic, or that tests whether
+      the harmful practice can stay hidden.
 
     You must return ONLY a JSON object with this exact shape, no preamble,
     no markdown fence, no explanation:
@@ -99,6 +114,7 @@ AiTemplate.find_or_create_by!(name: "sharedforesight_assumptions_v1") do |t|
     - Strategies under 50 chars produce thin matrices. Form validation enforces 50+ chars.
     - Highly novel domains produce more "market" category assumptions — this reflects the strategy, not a bug.
   NOTES
+  t.save!
 end
 
 puts "Seeded: sharedforesight_assumptions_v1 AI template"
